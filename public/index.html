@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EstudaIA | Assistente Inteligente de Estudos</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <h2>EstudaIA</h2>
+                <span>Assistente de Estudos</span>
+            </div>
+
+            <nav class="sidebar-navigation">
+
+                <a href="#dashboard" class="nav-link active" data-page="dashboard">
+                    Dashboard
+                </a>
+
+                <a href="#materias" class="nav-link" data-page="materias">
+                    Minhas Matérias
+                </a>
+
+                <a href="#resumos" class="nav-link" data-page="resumos">
+                    Resumos IA
+                </a>
+
+                <a href="#questoes" class="nav-link" data-page="questoes">
+                    Questões
+                </a>
+
+                <a href="#flashcards" class="nav-link" data-page="flashcards">
+                    Flashcards
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- DASHBOARD -->
+            <section class="page-section" id="dashboard">
+
+                <header class="topbar">
+                    <h1>Dashboard</h1>
+                    <p>Visão geral dos seus estudos</p>
+                </header>
+
+                <section class="welcome-section">
+                    <h2>Bem-vindo ao EstudaIA!</h2>
+                    <p>
+                        Organize seus estudos e acompanhe seu progresso
+                        com inteligência artificial.
+                    </p>
+                </section>
+
+                <section class="dashboard-section">
+
+                    <div class="dashboard-cards">
+
+                        <div class="dashboard-card">
+                            <h3>Minhas Matérias</h3>
+                            <p id="total-subjects">0</p>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3>Resumos IA</h3>
+                            <p id="total-summaries">0</p>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3>Questões</h3>
+                            <p id="total-questions">0</p>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3>Flashcards</h3>
+                            <p id="total-flashcards">0</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+            <!-- MINHAS MATÉRIAS -->
+            <section class="page-section" id="materias" hidden>
+
+                <header class="topbar">
+                    <h1>Minhas Matérias</h1>
+                    <p>Organize suas disciplinas de estudo</p>
+                </header>
+
+                <section class="dashboard-section">
+
+                    <div class="dashboard-card">
+
+                        <h2>Adicionar Matéria</h2>
+
+                        <form id="subject-form">
+
+                            <input
+                                type="text"
+                                id="subject-name"
+                                placeholder="Nome da matéria"
+                                required
+                            >
+
+                            <button class="btn btn-primary">Adicionar Matéria</button>
+
+                        </form>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <h2>Matérias Cadastradas</h2>
+
+                        <div id="subjects-list">
+                            <p>Nenhuma matéria cadastrada.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+          <!-- RESUMOS IA -->
+<section class="page-section" id="resumos" hidden>
+
+    <header class="topbar">
+        <h1>Resumos IA</h1>
+        <p>Transforme conteúdos em resumos inteligentes</p>
+    </header>
+
+    <section class="dashboard-section">
+
+        <!-- GERAR RESUMO -->
+        <div class="dashboard-card">
+
+            <h2>Gerar Resumo</h2>
+
+            <form id="summary-form">
+
+                <input
+                    type="text"
+                    id="summary-topic"
+                    placeholder="Digite o assunto do resumo"
+                    required
+                >
+
+                <button class="btn btn-primary">
+                    Gerar Resumo
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- MEUS RESUMOS -->
+        <div class="dashboard-card">
+
+            <h2>Meus Resumos</h2>
+
+            <div id="summaries-list">
+                <p>Nenhum resumo salvo.</p>
+            </div>
+
+        </div>
+
+        <!-- RESULTADO -->
+        <div class="dashboard-card">
+
+            <h2>Resultado</h2>
+
+            <div id="summary-result">
+                <p>Seu resumo aparecerá aqui.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+           <!-- QUESTÕES -->
+<section class="page-section" id="questoes" hidden>
+
+    <header class="topbar">
+        <h1>Questões</h1>
+        <p>Teste seus conhecimentos</p>
+    </header>
+
+    <section class="dashboard-section">
+
+        <div class="dashboard-card">
+
+            <h2>Quiz de Estudos</h2>
+            <p>Gere questões automaticamente com inteligência artificial.</p>
+
+            <div class="quiz-form">
+
+                <textarea
+                    id="quiz-prompt"
+                    placeholder="Cole aqui o conteúdo da matéria..."
+                    rows="8"
+                ></textarea>
+
+                <button id="generate-quiz-btn" type="button" class="btn btn-primary">
+                Gerar questões
+               </button>
+
+            </div>
+
+            <div id="quiz-container">
+                <p>Suas questões aparecerão aqui.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+            
+<!-- FLASHCARDS -->
+<section class="page-section" id="flashcards" hidden>
+
+    <header class="topbar">
+        <h1>Flashcards</h1>
+        <p>Revise conteúdos com cartões de aprendizagem</p>
+    </header>
+
+    <section class="dashboard-section">
+
+        <div class="dashboard-card">
+
+            <h2>Criar Flashcards</h2>
+
+            <textarea
+                id="flashcards-prompt"
+                placeholder="Digite ou cole o conteúdo para criar seus flashcards..."
+                rows="5"
+            ></textarea>
+
+            <div class="flashcards-quantity-group">
+    <label for="flashcards-quantity">Quantidade de flashcards</label>
+
+    <select id="flashcards-quantity" class="form-select">
+    <option value="5">5 flashcards</option>
+    <option value="10" selected>10 flashcards</option>
+    <option value="15">15 flashcards</option>
+    <option value="20">20 flashcards</option>
+    <option value="30">30 flashcards</option>
+</select>
+</div>
+
+            <button id="generate-flashcards-btn" class="btn btn-primary">
+             Flashcards
+            </button>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <h2>Meus Flashcards</h2>
+
+            <div id="flashcards-container">
+                <p>Seus flashcards aparecerão aqui.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+        </main>
+
+    </div>
+
+   <!-- BIBLIOTECA MARKED -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- BIBLIOTECA DOMPURIFY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.4.17/purify.min.js"></script>
+
+<!-- JAVASCRIPT -->
+<script type="module" src="js/app.js"></script>
+
+</body>
+
+</html>

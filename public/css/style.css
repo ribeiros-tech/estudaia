@@ -1,0 +1,740 @@
+/* =========================================
+   ESTUDAIA — DESIGN SYSTEM
+   ========================================= */
+
+:root {
+    --color-primary: #635bdb;
+    --color-primary-dark: #5048c8;
+    --color-background: #f5f6fa;
+    --color-surface: #ffffff;
+    --color-sidebar: #171827;
+
+    --color-text: #202235;
+    --color-text-secondary: #777b90;
+    --color-border: #e9eaf0;
+
+    --sidebar-width: 250px;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    --shadow-card: 0 4px 18px rgba(25, 30, 60, 0.04);
+}
+
+/* =========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+/* =========================================
+   ESTRUTURA PRINCIPAL
+   ========================================= */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================================
+   SIDEBAR
+   ========================================= */
+
+.sidebar {
+    width: var(--sidebar-width);
+    min-height: 100vh;
+    padding: 30px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--color-sidebar);
+    color: #ffffff;
+
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    margin-bottom: 55px;
+    padding-left: 10px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #8e87ff;
+}
+
+.sidebar-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+
+    min-height: 46px;
+    padding: 12px 15px;
+
+    border-radius: var(--radius-sm);
+
+    color: #a8a9ba;
+    font-size: 14px;
+    font-weight: 500;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+}
+
+.nav-link.active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 20px 10px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer p {
+    margin-bottom: 4px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.sidebar-footer span {
+    color: #9698aa;
+    font-size: 11px;
+}
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+   ========================================= */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 40px;
+}
+
+/* =========================================
+   CABEÇALHO
+   ========================================= */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.topbar h1 {
+    margin-bottom: 4px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.topbar p {
+    color: var(--color-text-secondary);
+    font-size: 13px;
+}
+
+/* =========================================
+   SEÇÃO DE BOAS-VINDAS
+   ========================================= */
+
+.welcome-section {
+    display: flex;
+    align-items: center;
+
+    min-height: 180px;
+    margin-bottom: 35px;
+    padding: 35px;
+
+    border-radius: var(--radius-lg);
+
+    background: linear-gradient(
+        115deg,
+        #635bdb 0%,
+        #8179ec 100%
+    );
+
+    color: #ffffff;
+}
+
+.welcome-section h2 {
+    margin-bottom: 10px;
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.welcome-section p {
+    max-width: 480px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+}
+
+/* =========================================
+   DASHBOARD
+   ========================================= */
+
+.dashboard-section {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    margin-bottom: 4px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.section-header p {
+    color: var(--color-text-secondary);
+    font-size: 13px;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* =========================================
+   CARDS
+   ========================================= */
+
+.dashboard-card {
+    min-height: 185px;
+    padding: 22px;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(25, 30, 60, 0.08);
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+    margin-bottom: 18px;
+
+    border-radius: var(--radius-sm);
+
+    background-color: #eeedff;
+    color: var(--color-primary);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.dashboard-card h3 {
+    margin-bottom: 8px;
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.card-value {
+    margin-bottom: 2px;
+    color: var(--color-text);
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.dashboard-card > span {
+    color: var(--color-text-secondary);
+    font-size: 11px;
+}
+
+/* =========================================
+   ACESSIBILIDADE
+   ========================================= */
+
+a:focus-visible {
+    outline: 3px solid #a49fff;
+    outline-offset: 3px;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+
+@media (max-width: 1100px) {
+    .dashboard-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .sidebar-header {
+        margin-bottom: 20px;
+    }
+
+    .sidebar-navigation {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    .main-content {
+        padding: 25px 20px;
+    }
+
+    .welcome-section {
+        min-height: 150px;
+        padding: 25px;
+    }
+
+    .welcome-section h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    #subject-form,
+    #summary-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #subject-form input,
+    #subject-form button,
+    #summary-form input,
+    #summary-form button {
+        width: 100%;
+    }
+
+    .topbar {
+        margin-bottom: 25px;
+    }
+
+    .topbar h1 {
+        font-size: 21px;
+    }
+
+    .welcome-section {
+        padding: 22px;
+    }
+
+    .welcome-section h2 {
+        font-size: 20px;
+    }
+
+    .sidebar-navigation {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   BOTÕES
+   ========================================= */
+
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.btn:focus-visible {
+    outline: 3px solid #a49fff;
+    outline-offset: 3px;
+}
+
+/* =========================================
+   CAMPO DE QUANTIDADE DOS FLASHCARDS
+   ========================================= */
+
+.flashcards-quantity-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.flashcards-quantity-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.form-select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #dfe1e8;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 91, 219, 0.12);
+}
+
+/* =========================================
+   FORMULÁRIOS — MINHAS MATÉRIAS
+   ========================================= */
+
+#subject-form input[type="text"],
+#summary-form input[type="text"] {
+    width: 320px;
+    max-width: 100%;
+    height: 42px;
+    padding: 10px 12px;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+
+    background-color: var(--color-surface);
+    color: var(--color-text);
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#subject-form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 91, 219, 0.12);
+}
+
+#subject-form input[type="text"]::placeholder {
+    color: var(--color-text-secondary);
+}
+
+#subject-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+
+    background-color: var(--color-surface);
+    color: var(--color-text);
+
+    font-size: 14px;
+    resize: vertical;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#subject-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 91, 219, 0.12);
+}
+
+#subject-form,
+#summary-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#materias .dashboard-card > h2,
+#resumos .dashboard-card > h2 {
+    margin-bottom: 10px;
+}
+
+/* ==============================
+   FLASHCARDS
+   ============================== */
+
+#flashcards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.flashcard {
+    position: relative;
+    min-height: 200px;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    min-height: 200px;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    box-sizing: border-box;
+}
+
+.flashcard-front {
+    background: #ffffff;
+    color: #222;
+    border: 1px solid #ddd;
+}
+
+.flashcard-back {
+    background: #2563eb;
+    color: #ffffff;
+    transform: rotateY(180deg);
+}
+
+.flashcard.flipped .flashcard-front {
+    transform: rotateY(180deg);
+}
+
+.flashcard.flipped .flashcard-back {
+    transform: rotateY(360deg);
+}
+
+/* =========================================
+   FORMULÁRIO — FLASHCARDS
+   ========================================= */
+
+#flashcards-prompt {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+
+    background-color: var(--color-surface);
+    color: var(--color-text);
+
+    font-size: 14px;
+    resize: vertical;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#flashcards-prompt:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 91, 219, 0.12);
+}
+
+#flashcards-prompt::placeholder {
+    color: var(--color-text-secondary);
+}
+
+/* =========================================
+   FORMULÁRIO — QUESTÕES
+   ========================================= */
+
+.quiz-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+}
+
+.quiz-form label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+#quiz-prompt {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    box-sizing: border-box;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+
+    background-color: var(--color-surface);
+    color: var(--color-text);
+
+    font-size: 14px;
+    resize: vertical;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#quiz-prompt:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 91, 219, 0.12);
+}
+
+#quiz-prompt::placeholder {
+    color: var(--color-text-secondary);
+}
+
+#summary-result {
+    line-height: 1.7;
+    color: #333;
+}
+
+#summary-result h1,
+#summary-result h2,
+#summary-result h3 {
+    color: #5048c8;
+    margin: 20px 0 10px;
+}
+
+#summary-result p {
+    margin-bottom: 12px;
+}
+
+#summary-result ul,
+#summary-result ol {
+    padding-left: 24px;
+    margin-bottom: 16px;
+}
+
+#summary-result li {
+    margin-bottom: 8px;
+}
+
+#summary-result strong {
+    color: #25234a;
+}
+
+/* =========================================
+   BOTÃO EXCLUIR
+   ========================================= */
+
+.delete-subject-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 7px;
+    background-color: #dc3545;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-subject-btn:hover {
+    background-color: #b02a37;
+    transform: translateY(-1px);
+}
+
+.delete-subject-btn:focus-visible {
+    outline: 3px solid #f5a5ac;
+    outline-offset: 3px;
+}
